@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { User } from '../../Types';
-import { useForm, SubmitHandler } from "react-hook-form";
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
-import { auth } from '../../Components/Config/Firebase';
+//import { User } from '../../Types';
+//import { useForm, SubmitHandler } from "react-hook-form";
+//import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+//import { auth } from '../../Components/Config/Firebase';
 import { useAuth } from '../../Components/Contente/AuthContente';
 import { Mail, Lock} from 'lucide-react';
 import { GoogleLogo } from '../../Components/GoogleLogo/GoogleLogo';
@@ -27,7 +27,7 @@ export function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const user = await signInWithEmailAndPassword(auth, formData.email, formData.password);
+      //const user = await signInWithEmailAndPassword(auth, formData.email, formData.password);
       
       toast.success('Connexion réussie');
       navigate('/Verification');
@@ -39,8 +39,8 @@ export function Login() {
 
   const handleGoogleSignIn = async () => {
     try {
-      const provider = new GoogleAuthProvider();
-      const user = await signInWithPopup(auth, provider);
+      ////const provider = new GoogleAuthProvider();
+      //const user = await signInWithPopup(auth, provider);
       toast.success('Connexion réussie avec Google');
       navigate('/Verification');
     } catch (error: any) {

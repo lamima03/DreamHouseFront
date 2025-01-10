@@ -4,13 +4,13 @@ export interface Property {
   type: 'Maison' | 'Appartement' | 'Bureau' | 'Salle polyvalente' | 'Villa' | 'Magasin';
   status: 'À louer' | 'À vendre';
   price: number;
-  currency: string;
+  currency?: string;
   location: string;
   surface: number;
   bedrooms?: number;
   bathrooms?: number;
   description: string;
-  imageUrl: string; // Changed from string[] to string
+  imageUrl: string; 
   features: string[];
   createdAt: string;
   agent: {

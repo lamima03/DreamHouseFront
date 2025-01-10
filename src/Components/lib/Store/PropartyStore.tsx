@@ -19,9 +19,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
       bedrooms: 4,
       bathrooms: 3,
       surface: 200,
-      imageUrl: [
-        'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80',
-      ],
+      imageUrl:"https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
       status: 'À vendre',
       description: 'Beautiful villa located in the heart of Aix-en-Provence.',
       features: ['Swimming Pool', 'Garage', 'Garden'],
@@ -30,7 +28,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
         name: 'John Doe',
         phone: '+33 123 456 789',
         email: 'john.doe@example.com',
-      },
+      }
     },
     {
       id: "2",
@@ -41,9 +39,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
       bedrooms: 4,
       bathrooms: 3,
       surface: 200,
-      imageUrl: [
-        'https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80',
-      ],
+      imageUrl:"https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
       status: 'À vendre',
       description: 'Beautiful villa located in the heart of Aix-en-Provence.',
       features: ['Swimming Pool', 'Garage', 'Garden'],
@@ -52,8 +48,9 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
         name: 'John Doe',
         phone: '+33 123 456 789',
         email: 'john.doe@example.com',
-      },
-    },{
+      }
+    },
+    {
       id: "3",
       title: 'Gombe',
       price: 850000,
@@ -62,7 +59,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
       bedrooms: 4,
       bathrooms: 3,
       surface: 200,
-      imageUrl:['https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80'],
+      imageUrl:"https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&q=80",
       status: 'À vendre',
       description: 'Beautiful villa located in the heart of Aix-en-Provence.',
       features: ['Swimming Pool', 'Garage', 'Garden'],
@@ -71,7 +68,7 @@ export const usePropertyStore = create<PropertyStore>((set, get) => ({
         name: 'John Doe',
         phone: '+33 123 456 789',
         email: 'john.doe@example.com',
-      },
+      }
     },
   ],
   filters: {

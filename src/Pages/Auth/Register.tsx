@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../Components/Config/Firebase';
-import { useAuth } from '../../Components/Contente/AuthContente';
+
 
 
 export default function Register() {
@@ -25,8 +25,6 @@ export default function Register() {
     watch,
   } = useForm<userType>()
 
-
-  const {setUser} = useAuth()
 
 
       const handleSubmit = async (e: React.FormEvent) => {
