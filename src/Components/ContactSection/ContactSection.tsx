@@ -27,7 +27,7 @@ export const ContactSection = () => {
                 />
                 <textarea
                   placeholder="Votre message"
-                  className="w-full px-4 py-2 focus:outline-none rounded-md border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent"
+                  className="w-full px-4 py-2 focus:outline-none rounded-md border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                 />
 
               </div>

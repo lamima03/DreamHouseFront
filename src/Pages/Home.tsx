@@ -8,9 +8,47 @@ import {FAQ} from '../Components/FAQ/FAQ'
 import { ContactSection } from '../Components/ContactSection/ContactSection';
 import { CategoriesSection } from '../Components/CategorieSection/CategorieSection'
 import { CallToAction } from '../Components/CallToAction/CallToAction';
+import { useState } from 'react';
 
 
 export const Home = () => {
+
+    const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const sendDataToBackend = async () => {
+    setLoading(true);
+    setMessage("");
+
+    try {
+      const response = await fetch("../components/Data/Maison.json"); // Charger les données locales
+      const maisons = await response.json();
+
+      console.log("Données chargées  hhhffhfh:");
+
+      const backendResponse = await fetch("http://localhost:3333/appartement", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(maisons),
+      });
+
+      if (!backendResponse.ok) {
+        throw new Error("Erreur lors de l'envoi des données");
+      }
+
+      setMessage("✅ Données envoyées avec succès !");
+      console.log("Données envoyées avec succès !");
+    } catch (error) {
+      setMessage("❌ Erreur lors de l'envoi des données");
+      console.error("Erreur :", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
   return (
     <main>
       
@@ -43,6 +81,22 @@ export const Home = () => {
       
       <ContactSection />
     
+    <section className='py-8'>
+
+    <div className="p-6 text-center">
+        
+      <button
+        className="bg-blue text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+        onClick={sendDataToBackend}
+        disabled={loading}
+      >
+        {loading ? "Envoi en cours..." : "Envoyer les données"}
+
+      </button>
+      {message && <p className="mt-4 text-lg font-semibold">{message}</p>}
+    </div>
+
+    </section>
       
     </main>
   );

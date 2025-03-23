@@ -1,13 +1,36 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <title>DreamHouse</title>
+    
+    <!-- Icône du site -->
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    
+    <!-- Manifest pour PWA (Assure-toi que le chemin est correct) -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Enregistrement du Service Worker -->
+    <script>
+      window.addEventListener('load', () => {
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/sw.js')
+            .then(() => console.log("Service Worker enregistré avec succès !"))
+            .catch(error => console.error("Erreur lors de l'enregistrement du Service Worker :", error));
+        }
+      });
+    </script>
   </head>
+  
   <body>
     <div id="root"></div>
+
+    <!-- Fallback si JavaScript est désactivé -->
+    <noscript>Vous devez activer JavaScript pour utiliser DreamHouse.</noscript>
+
+    <!-- Script principal React/Vite -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

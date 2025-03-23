@@ -29,6 +29,7 @@ export interface Property {
   }
   
   export interface User {
+    username: ReactNode;
     id: string;
     email: string;
     name: string;

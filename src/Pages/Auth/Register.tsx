@@ -8,8 +8,6 @@ import { useState } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../Components/Config/Firebase';
 
-
-
 export default function Register() {
   const navigate = useNavigate();
 
@@ -23,7 +21,7 @@ export default function Register() {
     register,
     formState: { errors },
     watch,
-  } = useForm<userType>()
+  } = useForm<userType>();
 
 
 
@@ -44,7 +42,9 @@ export default function Register() {
         setIsLoading(true);
     
         try {
-          const response = await fetch('http://localhost:3333/register', {
+
+          
+          const response = await fetch(process.env.REACT_APP_API+'/register', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -161,12 +161,20 @@ export default function Register() {
                   type="password"
                   required
                   className="appearance-none block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-brown-500 focus:border-brown-500"
-                  {...register("confirmPassword",{required: true, minLength: 8})}
+                  {...register("confirmPassword", {
+                  required: "Ce champ est obligatoire",
+                  minLength: {value: 8,message: "Le mot de passe doit contenir au moins 8 caractères"},
+                  validate: (value) =>
+                  value === watch("password") || "Les mots de passe ne correspondent pas"})}
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+
               </div>
-              {watch("password") != watch("confirmPassword") && <span className='text-red-500 text-sm'>Mot de passe incorrect</span>}
+              {/* {watch("password") != watch("confirmPassword") && <span className='text-red-500 text-sm'>Mot de passe incorrect</span>} */}
+              {errors.confirmPassword && (
+                <p className="text-red-500 text-sm mt-1">{errors.confirmPassword.message}</p>
+              )}
             </div>
 
             <div>

@@ -3,8 +3,8 @@ import { Bed, Bath, Square } from 'lucide-react';
 const featuredListings = [
   {
     id: 1,
-    title: 'Levitia Rise',
-    address: '123 Bonnefontaine Ave',
+    title: 'GOMBE',
+    address: '123 Rue Des étoiles',
     price: 235000,
     beds: 4,
     baths: 2,
@@ -14,8 +14,8 @@ const featuredListings = [
   },
   {
     id: 2,
-    title: 'City vertu',
-    address: '456 Rue Saint-Michel',
+    title: 'Cité verte',
+    address: '456 Rue du drapeau ',
     price: 275000,
     beds: 3,
     baths: 2,
@@ -25,8 +25,8 @@ const featuredListings = [
   },
   {
     id: 3,
-    title: 'Maëva',
-    address: '789 Rue du Port',
+    title: 'LEMBA',
+    address: '789 Rue Bangamelo',
     price: 195000,
     beds: 2,
     baths: 1,

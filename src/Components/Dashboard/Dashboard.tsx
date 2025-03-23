@@ -10,8 +10,8 @@ import {
   Umbrella,
   User,
 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom'; // Import du hook pour la navigation
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; // Firebase Auth
+import { useNavigate } from 'react-router-dom';
+import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth'; 
 import { Button } from '../ui/Button';
 import { Card } from '../ui/Card';
 import ProfilePhotoButton from '../Profil/UserProfil';
@@ -38,7 +38,7 @@ export default function Dashboard() {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser({
-          name: currentUser.displayName || 'Utilisateur Anonyme', // Nom de l'utilisateur
+          name: currentUser.displayName || "Nom de l'utilisateur",
           walletBalance: 0.0, // Placeholder pour le portefeuille
           photoUrl: currentUser.photoURL || '', // URL de la photo
         });
@@ -110,7 +110,7 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-customchoco">
+    <div className="min-h-screen bg-customchoco pt-16">
       <div className="max-w-6xl mx-auto p-4 space-y-6">
         {/* En-tête avec profil et porte-monnaie */}
         <div className="flex flex-col sm:flex-row justify-between items-start gap-4 bg-white rounded-lg p-6 shadow-sm">
@@ -138,7 +138,7 @@ export default function Dashboard() {
             title="Porte-monnaie"
             description={
               <>
-                <p className="text-2xl font-bold">{user.walletBalance.toFixed(2)} €</p>
+                <p className="text-2xl font-bold">{user.walletBalance.toFixed(2)} $</p>
                 <p className="text-sm text-gray-600">Solde disponible</p>
               </>
             }
